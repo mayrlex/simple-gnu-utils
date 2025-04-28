@@ -1,0 +1,24 @@
+Line 1: Normal text
+Line 2: Tab	character
+Line 3: Multiple	    tabs	inside	text
+Line 4: A line with trailing spaces.      
+Line 5: Multiple spaces before EOL.       
+Line 6: A mix of spaces and tabs     	together
+Line 7: Ends with a tab.	
+Line 8: Empty line follows.
+
+	
+Line 10: Multiple empty lines follow.
+
+
+
+Line 11: Carriage return (CR) at end.^M
+Line 12: Form feed (FF) in the middle.^LHello
+Line 13: Vertical tab (VT) in the middle.^KWorld
+Line 14: Bell character (BEL) in the middle.^GDing!
+Line 15: Backspace (BS) in the middle.^HErase
+Line 16: ASCII control characters in a row. ^@^A^B^C^D^E^F^G^H^I^J^K^L^M^N^O
+Line 17: Printable ASCII only: ! " # $ % & ' ( ) * + , - . /
+Line 18: Digits and letters: 0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
+Line 19: Special ASCII symbols: : ; < = > ? @ [ \ ] ^ _ `
+Line 20: More symbols: { | } ~

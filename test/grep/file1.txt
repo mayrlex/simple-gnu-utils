@@ -1,0 +1,3 @@
+TestPattern line one.
+Another line with TestPattern.
+A line without the keyword.
