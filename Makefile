@@ -31,23 +31,23 @@ $(TARGET_CAT): $(CAT_OBJS)
 $(TARGET_GREP): $(GREP_OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 
-test_cat:
+test-cat:
 	@echo ">>> Running tests for \"cat\""
 	./test/cat/test_max_coverage.sh
 
-test_grep:
+test-grep:
 	@echo ">>> Running tests for \"grep\""
 	./test/grep/test.sh
 
 clang:
 	clang-format --dry-run --Werror $(RAWS) || clang-format -i $(RAWS)
 
-clang_check:
+clang-check:
 	clang-format -n $(RAWS)
 
-c:
+clean:
 	rm $(TARGET_CAT) $(TARGET_GREP) $(ROOT)/cat/*.o $(ROOT)/grep/*.o
 
-r: c all
+rebuild: clean all
 
-.PHONY: all clang c r test_cat test_grep cat grep
+.PHONY: all clang clang-check clean rebuild test-cat test-grep cat grep

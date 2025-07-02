@@ -1,74 +1,104 @@
 # simple-gnu-utils
-Minimal implementation of GNU cat and grep utilities
+
+A lightweight implementation of the GNU `cat` and `grep` utilities, written in C to provide essential functionality with minimal code.
+
+---
+
+## Features
+
+### `cat`
+Outputs file contents to standard output.
+
+Supported options:
+- `-b` : number non-empty output lines
+- `-e` : display `$` at end of each line and make non-printing characters visible (equivalent to `-vE`)
+- `-E` : display `$` at end of each line
+- `-n` : number all output lines
+- `-s` : suppress repeated empty output lines
+- `-t` : display tab characters as `^I` and make non-printing characters visible (equivalent to `-vT`)
+- `-T` : display tab characters as `^I`
+- `-v` : make non-printing characters visible
+
+### `grep`
+Searches for patterns in files using basic regular expressions.
+
+Supported options:
+- `-e` : specify a pattern
+- `-i` : case-insensitive matching
+- `-v` : invert match
+- `-c` : print only a count of matching lines per file
+- `-l` : print only names of files with matches
+- `-n` : prefix each matching line with the line number
+- `-h` : suppress the prefixing of file names on output
+- `-s` : suppress error messages about nonexistent or unreadable files
+- `-f` : obtain patterns from a file
+- `-o` : show only matching parts of lines
+
+---
 
 ## Build
 
-### Common
-
-Собирает и cat и grep
-
 ```bash
+git clone https://github.com/mayrlex/simple-gnu-utils.git
+cd simple-gnu-utils
 make
 ```
-### cat
 
-Отдельно собирает cat
-
-```bash
-make cat
-```
-### grep
-
-Отдельно собирает cat
+### Build individually
 
 ```bash
-make grep
+make cat    # Build cat utility
+make grep   # Build grep utility
 ```
 
-### Rebuild
+---
 
-Пересобирает весь проект
+## Usage
+
+### `cat`
 
 ```bash
-make r
+./gcat <OPTION>... <FILE>...
 ```
 
-## Test
-
-### Unit-тестирование
-
-Для cat:
+Example:
 
 ```bash
-make test_cat
+./gcat -n file.txt
 ```
 
-Для grep:
+### `grep`
 
 ```bash
-make test_grep
+./ggrep <OPTION>... PATTERN <FILE>...
 ```
 
-### Clang
-
-Проверка на соответствие стилям:
+Example:
 
 ```bash
-make clang_check
+./ggrep -i "lorem" file.txt
 ```
 
-Автоматическое исправление стиля кода:
+---
+
+## Tests
+Run unit tests:
 
 ```bash
-make clang
+make test-cat
+make test-grep
 ```
 
+---
 
+## Makefile commands
 
-## Clean
-
-Чистит проект от лишнего мусора (Объектные файлы, артефакты)
-
-```bash
-make с
-```
+- make — build all utilities
+- make cat — build only cat
+- make grep — build only grep
+- make test-cat — run tests for cat
+- make test-grep — run tests for grep
+- make clang — format code using clang-format
+- make clang-check — check code formatting without modifying files
+- make clean — remove build artifacts
+- make rebuild — clean and build
